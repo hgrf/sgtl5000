@@ -172,3 +172,8 @@ esp_err_t sgtl5000_init(i2c_port_t port, uint8_t i2c_address)
 
     return ret;
 }
+
+esp_err_t sgtl5000_set_volume(uint8_t volume)
+{
+    return sgtl5000_write_reg(SGTL5000_REG_ANA_HP_CTRL, (uint16_t) volume << 8 | (uint16_t) volume);
+}
